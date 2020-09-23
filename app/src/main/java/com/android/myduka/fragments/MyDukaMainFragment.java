@@ -28,8 +28,8 @@ public class MyDukaMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.myduka_rec, container, false);
-        TextView textView = v.findViewById(R.id.text);
-        textView.setText("First Fragment");
+//        TextView textView = v.findViewById(R.id.text);
+//        textView.setText("First Fragment");
 //        final Context context = v.getRootView().getContext();
 //        return v;
 

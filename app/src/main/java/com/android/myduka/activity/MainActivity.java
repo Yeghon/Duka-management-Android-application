@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Toolbar toolbar;
     private TabLayout tabLayout;
+
     @TargetApi(Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MyDukaMainFragment(), "ONE");
@@ -53,24 +54,30 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mList = new ArrayList<>();
         private final List<String> mTitleList = new ArrayList<>();
+
         public ViewPagerAdapter(FragmentManager supportFragmentManager) {
             super(supportFragmentManager);
         }
+
         @Override
         public Fragment getItem(int i) {
             return mList.get(i);
         }
+
         @Override
         public int getCount() {
             return mList.size();
         }
+
         public void addFragment(Fragment fragment, String title) {
             mList.add(fragment);
             mTitleList.add(title);
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
             return mTitleList.get(position);
